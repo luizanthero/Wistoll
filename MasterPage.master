@@ -1,0 +1,383 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <title>Wistoll</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    
+    <link href="fonts/css/font-awesome.min.css" rel="stylesheet" />
+    
+    <link href="css/animate.min.css" rel="stylesheet" />
+
+    <link href="css/custom.css" rel="stylesheet" />
+    
+    <link href="css/green.css" rel="stylesheet" />
+
+    <link href="css/Wistoll.css" rel="stylesheet" />
+    <link href="css/bootstrap-select.min.css" rel="stylesheet" />
+    
+    <%--<link href="build/vendors/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />--%>
+    <%--  <link href="https://cdn.jsdelivr.net/g/intro.js@2.0.0(introjs-rtl.min.css+introjs.min.css)" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/intro.js/2.0.0/intro.min.js"></script>--%>
+
+    <link href="css/introo.css" rel="stylesheet" />
+
+    <script src='<%=ResolveUrl("js/intro.min.js")%>'></script>
+
+    <script src='<%=ResolveUrl("~/js/jquery.min.js")%>'></script>
+    <script src='<%=ResolveUrl("~/js/custom.js")%>'></script>
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body class="nav-md">
+
+    <form id='form1' runat='server'>
+        <div class="container body">
+
+            <div class="main_container">
+                <div class="col-md-3 left_col">
+                    <div class="left_col scroll-view">
+                        <div class="navbar nav_title" style="border: 0;">
+                            <asp:Literal ID="lblLogo" runat="server"></asp:Literal>
+                        </div>
+                        <div class="clearfix"></div>
+                        <!-- menu prile quick info -->
+                        <div class="profile">
+                            <div class="profile_pic">
+                                <asp:Label ID="lblImagem" runat="server"></asp:Label>
+                            </div>
+                            <div class="profile_info">
+                                <span>Bem Vindo!</span>
+                                <h2>
+                                    <asp:Label ID="lblNome" runat="server"></asp:Label>
+                                </h2>
+                            </div>
+                        </div>
+                        <!-- /menu prile quick info -->
+                        <br />
+                        <!-- sidebar menu -->
+                        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+
+                            <div class="menu_section">
+                                <h3>
+                                    <asp:Label ID="lblPerfil" runat="server"></asp:Label>
+                                </h3>
+
+                                <ul class="nav side-menu">
+                                    <li>
+                                        <asp:Literal ID="lblPrincipal" runat="server"></asp:Literal>
+                                    </li>
+                                    <li><a><i class="fa fa-edit"></i>Cadastro <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu" style="display: none">
+                                            <asp:Literal ID="lblCadastrar" runat="server"></asp:Literal>
+                                        </ul>
+                                    </li>
+                                    <li><a><i class="fa fa-eye"></i>Consultas <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu" style="display: none">
+                                            <asp:Literal ID="lblConsultar" runat="server"></asp:Literal>
+                                        </ul>
+                                    </li>
+                                    <li><a><i class="fa fa-print"></i>Imprimir <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu" style="display: none">
+                                            <asp:Literal ID="lblImprimir" runat="server"></asp:Literal>
+                                        </ul>
+                                    </li>
+                                    <li><a><i class="fa fa-question"></i>Ajuda <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu" style="display: none">
+                                            <%-- <asp:Literal ID="lblAjuda" runat="server"></asp:Literal>--%>
+                                            <li><a href="javascript:void(0);" onclick="javascript:introJs().start();">Tutorial</a></li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+                            <div class="menu_section">
+                            </div>
+
+                        </div>
+                        <!-- /sidebar menu -->
+
+                    </div>
+                </div>
+                <!-- top navigation -->
+                <div class="top_nav">
+
+                    <div class="nav_menu">
+                        <nav class="" role="navigation">
+                            <div class="nav toggle">
+                                <span class="" data-toggle="tooltip" data-placement="right" title="movimentar menu">
+                                    <a id="menu_toggle"><i class="fa fa-bars"></i></a></span>
+                            </div>
+
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="">
+                                    <a href="#" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <span class="" data-toggle="tooltip" data-placement="bottom" title="acesso rapido">
+                                            <asp:Label ID="lblImagem1" runat="server"></asp:Label>
+                                            <asp:Label ID="lblNome1" runat="server"></asp:Label>
+                                            <span class=" fa fa-angle-down"></span></span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-usermenu animated fadeindown pull-right">
+                                        <li><a href='<%=ResolveUrl("~/paginas/UsuarioPerfil.aspx")%>'>Perfil</a></li>
+                                        <%--<li>
+                                            <a href="#">
+                                                <span class="badge bg-red pull-right">50%</span>
+                                                <span>configurações</span>
+                                            </a>
+                                        </li>--%>
+                                        <%-- <li>
+                                            <a href="#">Sobre</a>
+                                        </li>--%>
+                                        <li>
+                                            <asp:LinkButton ID="btnSobre" runat="server" data-toggle="modal" data-target="#sobre">Sobre</asp:LinkButton>
+                                        </li>
+
+                                        <li>
+                                            <asp:LinkButton ID="lnkSair" runat="server" OnClick="Sair_Click"><i class="fa fa-sign-out pull-right"></i>Sair</asp:LinkButton>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <%--<li role="presentation" class="dropdown">
+                                    <a href="#" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                                        <span class="docs-tooltip" data-toggle="tooltip" data-placement="bottom" title="notificações">
+                                            <i class="fa fa-envelope-o"></i>
+                                            <span class="badge bg-green">4</span></span>
+                                    </a>
+                                    <ul id="menu1" class="dropdown-menu list-unstyled msg_list animated fadeindown" role="menu">
+                                        <li>
+                                            <a>
+                                                <span class="image">
+                                                    <i class="no fa-paw"></i>
+                                                </span>
+                                                <span>
+                                                    <span>lucas henrique</span>
+                                                    <span class="time">5 mins atras</span>
+                                                </span>
+                                                <span class="message">solicitação do processo para a vigilância sanitária... 
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a>
+                                                <span class="image">
+                                                    <i class="no fa-paw"></i>
+                                                </span>
+                                                <span>
+                                                    <span>luiz anthero</span>
+                                                    <span class="time">20 mins atras</span>
+                                                </span>
+                                                <span class="message">solicitação do processo para os bombeiros... 
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a>
+                                                <span class="image">
+                                                    <i class="no fa-paw"></i>
+                                                </span>
+                                                <span>
+                                                    <span>rafael oliveira</span>
+                                                    <span class="time">45 mins atras</span>
+                                                </span>
+                                                <span class="message">solicitação do processo para fiscalização tributária... 
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a>
+                                                <span class="image">
+                                                    <i class="no fa-paw"></i>
+                                                </span>
+                                                <span>
+                                                    <span>amanda lais</span>
+                                                    <span class="time">60 mins atras</span>
+                                                </span>
+                                                <span class="message">solicitação do processo para conclusão... 
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <div class="text-center">
+                                                <a>
+                                                    <strong><a href="#">ver todos</strong>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>--%>
+
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <div id="sobre" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <h3 class="modal-title text-center" id="modal"><i class="wi fa-paw"></i>istoll</h3>
+                                </div>
+                                <div class="modal-body">
+                                    <h4>Versão: <b>1.0</b></h4>
+                                    <h4>Ultima Atualização: 22/06/2016</h4> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /top navigation -->
+                <!-- page content -->
+                <div class="right_col" role="main">
+
+                    <asp:ContentPlaceHolder ID="contentplaceholder1" runat="server">
+                    </asp:ContentPlaceHolder>
+
+                    <!-- footer content -->
+                    <footer>
+                        <div class="">
+                            <p class="pull-right">
+                                sistema gerenciador de potocolos. |
+                            <span class="lead"><i class="wi fa-paw"></i>istoll</span>
+                            </p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </footer>
+                    <!-- /footer content -->
+
+                </div>
+                <!-- /page content -->
+            </div>
+        </div>
+        <div id="custom_notifications" class="custom-notifications dsp_none">
+            <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group"></ul>
+            <div class="clearfix"></div>
+            <div id="notif-group" class="tabbed_notifications"></div>
+        </div>
+    </form>
+
+    <script src='<%=ResolveUrl("~/build/vendors/bootstrap/dist/js/bootstrap.min.js")%>'></script>
+    <script src='<%=ResolveUrl("~/build/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js")%>'></script>
+
+    <script src='<%=ResolveUrl("~/build/vendors/jquery.hotkeys/jquery.hotkeys.js")%>'></script>
+    <script src='<%=ResolveUrl("~/build/vendors/google-code-prettify/src/prettify.js")%>'></script>
+    
+    <!-- chart js -->
+    <script src='<%=ResolveUrl("~/js/chart.min.js")%>'></script>
+    <!-- bootstrap progress js -->
+    <script src='<%=ResolveUrl("~/js/bootstrap-progressbar.min.js")%>'></script>
+    <script src='<%=ResolveUrl("~/js/jquery.nicescroll.min.js")%>'></script>
+    <!-- icheck -->
+    <script src='<%=ResolveUrl("~/js/icheck.min.js")%>'></script>
+    <!-- easypie -->
+    <script src='<%=ResolveUrl("js/jquery.easypiechart.min.js")%>'></script>
+
+    <script src='<%=ResolveUrl("~/js/ComponentesCustom.js")%>'></script>
+    <!-- input mask -->
+    <script src='<%=ResolveUrl("~/js/jquery.inputmask.js")%>'></script>
+
+    <script src='<%=ResolveUrl("~/js/jquery.nicescroll.min.js")%>'></script>
+
+    <script src='<%=ResolveUrl("~/js/jquery.smartWizard.js")%>'></script>
+
+    <!-- daterangepicker -->
+    <script src="<%=ResolveUrl("~/js/moment.min.js")%>"></script>
+    <script src="<%=ResolveUrl("~/js/daterangepicker.js")%>"></script>
+
+
+    <!-- image cropping -->
+    <script src="<%=ResolveUrl("~/js/main.js")%>"></script>
+    <script src="<%=ResolveUrl("~/js/cropper.min.js")%>"></script>
+
+
+    <!-- moris js -->
+    <script src="<%=ResolveUrl("~/js/raphael-min.js")%>"></script>
+    <script src="<%=ResolveUrl("~/js/morris.js")%>"></script>
+
+    <script src="<%=ResolveUrl("~/js/ScriptPerfil.js")%>"></script>
+
+    <script src="<%=ResolveUrl("~/js/validator.js")%>"></script>
+
+    <script src="<%=ResolveUrl("~/js/pnotify.buttons.js")%>"></script>
+    <script src="<%=ResolveUrl("~/js/pnotify.core.js")%>"></script>
+    <script src="<%=ResolveUrl("~/js/Pnotify.js")%>"></script>
+    <script src="<%=ResolveUrl("~/js/pnotify.nonblock.js")%>"></script>
+
+    <script src="<%=ResolveUrl("~/js/bootstrap-select.min.js")%>"></script>
+    <!-- Java Script do Validator -->
+
+    <script src="<%=ResolveUrl("js/DataTables-1.10.12/media/js/jquery.dataTables.min.js")%>"></script>
+    <script src="<%=ResolveUrl("js/DataTables-1.10.12/extensions/Responsive/js/dataTables.responsive.js")%>"></script>
+    <%--<script src='<%=ResolveUrl("~/js/dataTables.responsive.js")%>'></script>--%>
+
+    <!-- Java Script do Validator -->
+    <script>
+        $(document).ready(function () {
+            $('.tabela').dataTable({
+                autoFill: true,
+                responsive: true
+
+            });
+        });
+    </script>
+
+    <script>
+        // initialize the validator function
+        validator.message['date'] = 'not a real date';
+
+        // validate a field on "blur" event, a 'select' on 'change' event & a '.reuired' classed multifield on 'keyup':
+        $('form')
+            .on('blur', 'input[required], input.optional, select.required', validator.checkField)
+            .on('change', 'select.required', validator.checkField)
+            .on('keypress', 'input[required][pattern]', validator.keypress);
+
+        $('.multi.required')
+            .on('keyup blur', 'input', function () {
+                validator.checkField.apply($(this).siblings().last()[0]);
+            });
+
+        // bind the validation to the form submit event
+        //$('#send').click('submit');//.prop('disabled', true);
+
+        $('form').submit(function (e) {
+            e.preventDefault();
+            var submit = true;
+            // evaluate the form using generic validaing
+            if (!validator.checkAll($(this))) {
+                submit = false;
+            }
+
+            if (submit)
+                this.submit();
+            return false;
+        });
+
+        /* FOR DEMO ONLY */
+        $('#vfields').change(function () {
+            $('form').toggleClass('mode2');
+        }).prop('checked', false);
+
+        $('#alerts').change(function () {
+            validator.defaults.alerts = (this.checked) ? false : true;
+            if (this.checked)
+                $('form .alert').remove();
+        }).prop('checked', false);
+
+        /*Tutorial*/
+        function help() {
+            introJs().start();
+        }
+    </script>
+
+</body>
+</html>

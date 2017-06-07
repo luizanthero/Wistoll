@@ -1,0 +1,83 @@
+﻿body{
+    background-color: #2a3f54;
+}
+
+h1, input::-webkit-input-placeholder {
+    font-family: 'roboto', sans-serif;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+form {
+    background-color: white;
+    box-sizing: border-box;
+    width: 300px;
+    min-height: 400px;
+    margin: 60px auto 0;
+    box-shadow: 6px 6px 10px 3px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+    form h1 {
+        height: 80px;
+        width: 100%;
+        font-size: 32px;
+        background: #18aa8d;
+        color: white;
+        line-height: 110%;
+        border-radius: 3px 3px 0 0;
+        box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
+        padding-left: 2px;
+        padding-right: 0px;
+    }
+
+input {
+    margin: 25px 25px;
+    width: 200px;
+    display: block;
+    border: none;
+    padding-top: 10px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 15px;
+    border-bottom: solid 1px #2a3f54;
+    -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+    transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #2a3f54 4%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #2a3f54 4%);
+    background-position: -200px 0;
+    background-size: 200px 100%;
+    background-repeat: no-repeat;
+    color: #0e6252;
+}
+
+    input:focus, input:valid {
+        box-shadow: none;
+        color: #2a3f54;
+        outline: none;
+        background-position: 0 0;
+    }
+
+        input:focus::-webkit-input-placeholder, input:valid::-webkit-input-placeholder {
+            color: transparent;
+            font-size: 16px;
+            -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+            visibility: visible !important;
+        }
+
+.wi {
+    margin-top: 10px;
+    display: inline-block;
+    font: normal normal normal 14px/1 'FontAwesome';
+    font-size: 100px;
+    text-rendering: auto;
+    color: #2a3f54;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    border: 1.4px solid #2a3f54;
+    padding: 20px 20px 10px 20px;
+    border-radius: 50%;
+}
+
